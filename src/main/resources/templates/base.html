@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head th:fragment="head(nomeDaPagina)">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <title th:text="${nomeDaPagina}"></title>
+    <style>
+        .logo-container {
+            background-color: #47bcff;
+            color: #fff;
+        }
+
+        .logo {
+            font-family: 'Handlee', cursive;
+            font-size: 3rem;
+        }
+        .titulo {
+            font-family: 'Handlee', cursive;
+            font-size: 5rem;
+        }
+    </style>
+</head>
+
+<!--LOGO E LOGIN-->
+<div th:fragment="logo" class="logo-container mb-3 p-3 d-flex justify-content-between">
+    <span class="logo">mudi</span>
+    <span class="mt-3">Login</span>
+</div>
+
+<!--TÍTULO COM UMBOTRON-->
+<div th:fragment="titulo(valor)" class="jumbotron mb-0">
+    <h1 class="titulo display-4" th:text="${valor}"></h1>
+</div>
