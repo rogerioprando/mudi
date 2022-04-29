@@ -31,6 +31,15 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/index")
+    public String index(Model model){
+
+        List<Pedido> pedidos = pedidoRepository.findAll();
+        model.addAttribute("pedidos", pedidos);
+
+        return "index";
+    }
+
     // /home/aguardando
     @GetMapping("/{status}")
     public String porStatus(@PathVariable("status") String status, Model model){
