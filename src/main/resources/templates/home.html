@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
@@ -6,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>mudi | Pedidos pelo Mundo</title>
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
 
@@ -23,8 +23,7 @@
                 <!--        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
                 <span class="brand-text font-weight-light">mudi</span>
             </a>
-            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse order-3" id="navbarCollapse">
@@ -37,25 +36,19 @@
                         <a href="pedido/formulario" class="nav-link">Novo</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false" class="nav-link dropdown-toggle">Pedidos</a>
+                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pedidos</a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a>
-                            </li>
-                            <li><a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link "
-                                   href="/home/aguardando">Aguardando</a></li>
-                            <li><a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link "
-                                   href="/home/aprovado">Aprovado</a></li>
-                            <li><a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link "
-                                   href="/home/entregue">Entregue</a></li>
+                            <li><a th:classappend="${status} == null ? 'active'"class="nav-item nav-link" href="/home">Todos</a></li>
+                            <li><a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link " href="/home/aguardando">Aguardando</a></li>
+                            <li><a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link " href="/home/aprovado">Aprovado</a></li>
+                            <li><a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link " href="/home/entregue">Entregue</a></li>
                         </ul>
                     </li>
                 </ul>
 
                 <form class="form-inline ml-0 ml-md-3">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                               aria-label="Search">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
@@ -75,54 +68,41 @@
             <div class="container">
                 <div class="container">
                     <div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
-                    <!--                    <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">-->
-                    <!--                        <div class="navbar-nav">-->
-                    <!--                            <a th:classappend="${status} == null ? 'active'"class="nav-item nav-link" href="/home">Todos</a>-->
-                    <!--                            <a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link " href="/home/aguardando">Aguardando</a>-->
-                    <!--                            <a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link " href="/home/aprovado">Aprovado</a>-->
-                    <!--                            <a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link " href="/home/entregue">Entregue</a>-->
-                    <!--                        </div>-->
-                    <!--                        <a href="pedido/formulario">-->
-                    <!--                            <button type="button" class="btn btn-block bg-gradient-secondary">Novo</button>-->
-                    <!--                        </a>-->
-                    <!--                    </nav>-->
+<!--                    <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">-->
+<!--                        <div class="navbar-nav">-->
+<!--                            <a th:classappend="${status} == null ? 'active'"class="nav-item nav-link" href="/home">Todos</a>-->
+<!--                            <a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link " href="/home/aguardando">Aguardando</a>-->
+<!--                            <a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link " href="/home/aprovado">Aprovado</a>-->
+<!--                            <a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link " href="/home/entregue">Entregue</a>-->
+<!--                        </div>-->
+<!--                        <a href="pedido/formulario">-->
+<!--                            <button type="button" class="btn btn-block bg-gradient-secondary">Novo</button>-->
+<!--                        </a>-->
+<!--                    </nav>-->
 
                     <div class="card mb-3 mt-3" th:each="pedido : ${pedidos}">
                         <th:block th:switch="${pedido.status.name()}">
-                            <div th:case="'AGUARDANDO'" class="card-header alert-warning"
-                                 th:text="${pedido.nomeProduto}">Nome do Produto
-                            </div>
-                            <div th:case="'APROVADO'" class="card-header alert-success" th:text="${pedido.nomeProduto}">
-                                Nome do Produto
-                            </div>
-                            <div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${pedido.nomeProduto}">
-                                Nome do Produto
-                            </div>
-                            <div th:case="'null'" class="card-header alert-light" th:text="${pedido.nomeProduto}">Nome
-                                do Produto
-                            </div>
+                            <div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                            <div th:case="'APROVADO'" class="card-header alert-success" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                            <div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+                            <div th:case="'null'" class="card-header alert-light" th:text="${pedido.nomeProduto}">Nome do Produto</div>
                         </th:block>
 
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-sm-8 mb-3">
                                     <div class="row">
-                                        <div class="col-md-5">Valor: <span th:if="${pedido.valorNegociado} != null"
-                                                                           th:text="${'R$ ' + #numbers.formatDecimal(pedido.valorNegociado,3,'POINT',2,'COMMA')}">200,99</span>
-                                        </div>
-                                        <div class="col-md-7">Data da entrega: <span
-                                                th:text="${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2022</span>
+                                        <div class="col-md-5">Valor: <span th:if="${pedido.valorNegociado} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valorNegociado,3,'POINT',2,'COMMA')}">200,99</span></div>
+                                        <div class="col-md-7">Data da entrega: <span th:text="${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2022</span>
                                         </div>
                                     </div>
 
                                     <div>Produto</div>
-                                    <div><input class="form-control" th:value="${pedido.urlProduto}"
-                                                value="url do pedido"/></div>
+                                    <div><input class="form-control" th:value="${pedido.urlProduto}" value="url do pedido"/></div>
 
                                     <div>Descrição</div>
                                     <div>
-                                        <textarea class="form-control"
-                                                  th:text="${pedido.descricao}">descrição do pedido</textarea>
+                                        <textarea class="form-control" th:text="${pedido.descricao}">descrição do pedido</textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
@@ -149,19 +129,18 @@
                 Anything you want
             </div>
 
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
         </footer>
     </div>
-</div>
 
 
-<script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
 
-<script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
 
-<script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js?v=3.2.0"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!--<script src="https://adminlte.io/themes/v3/dist/js/demo.js"></script>-->
+    <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js?v=3.2.0"></script>
+
+    <script src="https://adminlte.io/themes/v3/dist/js/demo.js"></script>
 </body>
 </html>
