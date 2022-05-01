@@ -7,7 +7,7 @@
     <title th:text="${nomeDaPagina}"></title>
     <style>
         .logo-container {
-            background-color: #bae08f;
+            background-color: #24a0d5;
             color: #fff;
         }
 
@@ -29,7 +29,7 @@
             font-size: 5rem;
         }
         .jumbotron{
-            background-color: #d8e8bf;
+            background-color: #9d9d9d;
         }
     </style>
 </head>
@@ -39,7 +39,12 @@
     <a href="/home">
         <span class="logo">mudi</span>
     </a>
-    <span class="mt-3">Login</span>
+    <span class="mt-3">
+        <a class="text-light" sec:authorize="!isAuthenticated()" href="/login">Login</a>
+        <a onclick="document.querySelector('#form-login').submit()" class="text-light" sec:authorize="isAuthenticated()" href="#">Logout</a>
+        <form id="form-login" th:action="@{/logout}" method="post"></form>
+
+    </span>
 </div>
 
 <!--TÍTULO COM UMBOTRON-->
