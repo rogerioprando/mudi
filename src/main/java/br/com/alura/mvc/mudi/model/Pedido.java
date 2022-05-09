@@ -31,6 +31,7 @@ public class Pedido {
     // Quantos pedidos tem pra oferta ? Cada pedido tem muitas ofertas
     // Um pedido tem muitas ofertas (uma lista de) - One Pedido To muitas Ofertas
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Oferta> ofertas;
 
     public String getNomeProduto() {
